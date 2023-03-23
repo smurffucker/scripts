@@ -19,7 +19,7 @@ local Tab = Window:MakeTab({
 local Section = Tab:AddSection({
 	Name = "Section"
 })
-Tab:AddParagraph("information about rogay hub","rogay hub is made using other people's scripts since i'm a retard who can only compile scripts :D")
+Tab:AddParagraph("information about rogay hub","rogay hub is made using other people's scripts since i'm a retard who can only compile scripts btw butekel is my gay script kiddie :D")
 
 Tab:AddButton({
 	Name = "escape every fight (nigerundayo!!!!)",
@@ -53,22 +53,31 @@ end
 Tab:AddLabel("slide amplifier will increase your slide distance A LOT")
 Tab:AddLabel("so use with caution, as i will not lie responsible for any bans")
 
-Tab:AddToggle({
-	Name = "speed heck!!!(buggy)",
+Tab:AddButton({
+	Name = "speed heck!!!(right ctrl is toggle)",
 	Default = false,
 	Callback = function(Value)
-local uis = game:GetService("UserInputService")
-local plr = game.Players.LocalPlayer
-local char = plr.Character or plr.CharacterAdded:Wait()
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
 
-uis.InputBegan:Connect(function(input,proc)
-    if not proc then
-        char:WaitForChild("Humanoid").WalkSpeed = 200
-    end
-end)
-uis.InputEnded:Connect(function(input,proc)
-    if not proc then
-        char:WaitForChild("Humanoid").WalkSpeed = 48
+local normalWalkSpeed = 48
+local fastWalkSpeed = 200
+local isFastWalking = false
+
+local function setWalkSpeed(speed)
+    character.Humanoid.WalkSpeed = speed
+end
+
+setWalkSpeed(normalWalkSpeed)
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.RightControl then
+        isFastWalking = not isFastWalking
+        if isFastWalking then
+            setWalkSpeed(fastWalkSpeed)
+        else
+            setWalkSpeed(normalWalkSpeed)
+        end
     end
 end)
 	end    
