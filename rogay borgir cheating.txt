@@ -82,6 +82,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
 end)
 	end    
 })
+Tab:AddLabel("speed stops working when you die so click me again ^^^")
+
 
 local Section = Tab:AddSection({
 	Name = "rejoining/hopping shit"
