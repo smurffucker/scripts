@@ -54,7 +54,7 @@ Tab:AddLabel("slide amplifier will increase your slide distance A LOT")
 Tab:AddLabel("so use with caution, as i will not lie responsible for any bans")
 
 Tab:AddToggle({
-	Name = "This is a toggle!",
+	Name = "speed heck!!!(buggy)",
 	Default = false,
 	Callback = function(Value)
 local uis = game:GetService("UserInputService")
