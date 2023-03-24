@@ -1,6 +1,6 @@
-if game.PlaceId == 914010731 then
-
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+if game.PlaceId == 914010731 then
 
 local Window = OrionLib:MakeWindow({Name = "rogay hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", Icon = "https://wallpapercave.com/dwp1x/wp5399306.jpg"})
 
@@ -20,7 +20,7 @@ local Tab = Window:MakeTab({
 Tab:AddButton({
 	Name = "discord emoji converter (:smile:)",
 	Callback = function()
-loadstring(game:HttpGet(('https://pastebin.com/raw/fS4gJxSm'),true))()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/smurffucker/scripts/main/emote.txt'),true))()
   	end    
 })
 
