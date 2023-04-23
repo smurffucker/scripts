@@ -160,6 +160,21 @@ Teleport()
 end, {})
 
 
+local FinityCheat = FinitySector:Cheat("Label", "", function (NewValue)
+    print(NewValue)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Label", "", function (NewValue)
+    print(NewValue)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Label", "admin cheat type shit vvvv", function (NewValue)
+    print(NewValue)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "infinite yield", function (NewValue)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end, {})
 
 local FinityCategory = FinityWindow:Category("farming")
 local FinitySector = FinityCategory:Sector("nothing here")
