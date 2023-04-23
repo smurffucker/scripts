@@ -4,7 +4,7 @@ finity.gs = {}
 ---- Data stored by finity to be used for later
 local finityData = {
 	UpConnection = nil,
-	ToggleKey = Enum.KeyCode.RightCtrl,
+	ToggleKey = Enum.KeyCode.RightControl,
 	CanToggle = true,
 	UsedKeybinds = {}
 }
