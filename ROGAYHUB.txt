@@ -1,0 +1,213 @@
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/smurffucker/scripts/main/3133.txt"))()
+
+local FinityWindow = Finity.new("rogay smex", true, false, "", true, "")
+
+local FinityCategory = FinityWindow:Category("rogay hub")
+
+local FinitySector = FinityCategory:Sector("very funny game!!!! (umbrella38512 is gay) (butekel is sex ngl) (cy is cool!!) (ize my mom)")
+local FinitySector = FinityCategory:Sector("")
+local FinitySector = FinityCategory:Sector("rogay hub PREMIUM")
+
+local FinityCategory = FinityWindow:Category("rogay")
+
+local FinitySector = FinityCategory:Sector("trolling")
+
+local FinityCheat = FinitySector:Cheat("Textbox", "slide heck", function (Value)
+    _G.DashCD = 0;-- Cooldown between different dashes.
+_G.DashSpeed = 4000;-- The speed at which you dash.
+_G.DashDistance = Value;-- The distance you get with each dash.
+
+if (_G.OldWait) then hookfunction(wait, _G.OldWait); end;-- In case the script is re-executed, it doesn't cause lag.
+
+local Players = game:GetService("Players");
+local Player = Players.LocalPlayer;
+
+local DashCDConsts = {"Disconnect", "WalkSpeed", 0, "AutoRotate"};-- Identifies the CD stage.
+local DashDtConsts = {"UserInputType", "Enum", "MouseButton1"};-- Identifies the DashDistance stage.
+
+local function ModifyDash()
+    local HumanoidRootPart = Player.Character.HumanoidRootPart
+    local Dash = HumanoidRootPart.Dash;
+    local Distance = (Dash.Position - HumanoidRootPart.Position);
+    local Direction = Distance.Unit;
+    Dash.P = _G.DashSpeed;
+    Dash.Position = HumanoidRootPart.Position + Direction * _G.DashDistance;
+end;
+
+local OldWait;
+OldWait = hookfunction(wait, function (Secs, ...)
+    if (getcallingscript().Name ~= "ClientControl") then return OldWait(Secs, ...); end;
+    local Consts = debug.getconstants(3);
+    if (Consts[1] == DashCDConsts[1] and Consts[2] == DashCDConsts[2] and Consts[3] == DashCDConsts[3] and Consts[4] == DashCDConsts[4]) then-- Enough Identification
+        Secs = _G.DashCD;
+    elseif (Consts[1] == DashDtConsts[1] and Consts[2] == DashDtConsts[2] and Consts[3] == DashDtConsts[3] and Secs == 0.4) then
+        pcall(ModifyDash);
+    end;
+    return OldWait(Secs, ...);
+end);
+_G.OldWait = OldWait;-- Backing up in case of re-execution
+end, { default = 0, min = 50, max = 130, suffix = " sex speed (dash) "}) 
+
+local FinityCheat = FinitySector:Cheat("Label", "gk 65+ get more and more blatant", function (NewValue)
+    print(NewValue)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Label", "general max 70ish", function (NewValue)
+    print(NewValue)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Label", "above 80 = high ban rate", function (NewValue)
+    print(NewValue)
+end, {})
+
+
+local FinitySector = FinityCategory:Sector("dumb shit")
+
+local FinityCheat = FinitySector:Cheat("Label", "", function (NewValue)
+    print(NewValue)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "discord emoji converter :grin:", function (NewValue)
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/smurffucker/scripts/main/emote.txt'),true))()
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "invis", function (NewValue)
+game.Players.LocalPlayer.Character.Kagune:Destroy()
+end, {})
+
+
+
+
+local FinityCategory = FinityWindow:Category("sex")
+
+local FinitySector = FinityCategory:Sector("dumb shit")
+
+local FinityCheat = FinitySector:Cheat("Button", "rejoin", function (NewValue)
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "serverhop", function (NewValue)
+local PlaceID = game.PlaceId
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local File = pcall(function()
+    AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+end)
+if not File then
+    table.insert(AllIDs, actualHour)
+    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+end
+function TPReturner()
+    local Site;
+    if foundAnything == "" then
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+    end
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+        foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+        local Possible = true
+        ID = tostring(v.id)
+        if tonumber(v.maxPlayers) > tonumber(v.playing) then
+            for _,Existing in pairs(AllIDs) do
+                if num ~= 0 then
+                    if ID == tostring(Existing) then
+                        Possible = false
+                    end
+                else
+                    if tonumber(actualHour) ~= tonumber(Existing) then
+                        local delFile = pcall(function()
+                            delfile("NotSameServers.json")
+                            AllIDs = {}
+                            table.insert(AllIDs, actualHour)
+                        end)
+                    end
+                end
+                num = num + 1
+            end
+            if Possible == true then
+                table.insert(AllIDs, ID)
+                wait()
+                pcall(function()
+                    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                    wait()
+                    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                end)
+                wait(4)
+            end
+        end
+    end
+end
+
+function Teleport()
+    while wait() do
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+end
+
+Teleport()   
+end, {})
+
+
+
+local FinityCategory = FinityWindow:Category("farming")
+local FinitySector = FinityCategory:Sector("nothing here")
+local FinitySector = FinityCategory:Sector("nothing here")
+local FinitySector = FinityCategory:Sector("nothing here")
+local FinitySector = FinityCategory:Sector("nothing here")
+
+
+local FinityCategory = FinityWindow:Category("vvvvvvv")
+local FinitySector = FinityCategory:Sector("nothing here")
+local FinitySector = FinityCategory:Sector("nothing here")
+local FinitySector = FinityCategory:Sector("nothing here")
+local FinitySector = FinityCategory:Sector("nothing here")
+
+local FinityCategory = FinityWindow:Category("pee poo")
+
+local FinitySector = FinityCategory:Sector("dumb shit")
+
+local FinityCheat = FinitySector:Cheat("Button", "FARMING SECTION", function (NewValue)
+    local FinityWindow = Finity.new("sexer farms", true, false, "", true, "")
+
+local FinityCategory = FinityWindow:Category("sex")
+
+local FinitySector = FinityCategory:Sector("farming")
+
+local FinityCheat = FinitySector:Cheat("Button", "Z4GS", function (NewValue)
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/z4gs/scripts/master/Ro-Ghoul%20Auto%20Farm.lua"))()
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "unfer huob", function (NewValue)
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/rblxscriptsnet/unfair/main/rblxhub.lua'),true))()
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "suck ass hub (key)", function (NewValue)
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/kyoichi35/Kyoichi-Hub/main/Kyoichi%20hub")))()
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "mukuro hub", function (NewValue)
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+end, {})
+
+local FinityCheat = FinitySector:Cheat("Button", "Z4GS", function (NewValue)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrapstarKSSKSKSKKS/Main/main/TrapHub.lua"))()
+end, {})
+
+end, {})
+
+
+local FinityCheat = FinitySector:Cheat("Label", "rexecute the script for the mormal menu back", function (NewValue)
+    print(NewValue)
+end, {})
