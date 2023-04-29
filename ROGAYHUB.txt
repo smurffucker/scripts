@@ -1,3 +1,6 @@
+if game.PlaceId == 914010731 then
+ print("rogayhub")
+
 local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/smurffucker/scripts/main/3133.txt"))()
 
 local FinityWindow = Finity.new("rogay smex", true, false, "", true, "")
@@ -225,4 +228,5 @@ end, {})
 
 local FinityCheat = FinitySector:Cheat("Label", "rexecute the script for the mormal menu back", function (NewValue)
     print(NewValue)
-end, {})
+end, {})local ID = 1
+end
